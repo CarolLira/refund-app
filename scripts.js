@@ -96,7 +96,7 @@ function updateTotals() {
 
       // Remove caracteres não numéricos e substitui a vírgula pelo ponto.
       let value = itemAmount.textContent.replace(/[^\d,]/g, "").replace(",", ".")
-    
+
       value = parseFloat(value)
 
       if (isNaN(value)) {
@@ -119,4 +119,13 @@ function updateTotals() {
     alert("Não foi possível atualizar os totais.")
   }
 }
+
+expenseList.addEventListener("click", function (event) {
+  if (event.target.classList.contains("remove-icon")) {
+    const item = event.target.parentElement
+    item.remove()
+  }
+
+  updateTotals()
+})
 
